@@ -29,6 +29,10 @@ THE SOFTWARE.
 #include "3D_math.h"
 #include <avr/pgmspace.h>
 
+#ifndef _I2CDEV_H_
+  #error "I2Cdev not found, download/clone from https://github.com/jrowberg/i2cdevlib"
+#endif
+
 //Magnetometer Registers
 #define MPU9150_RA_MAG_ADDRESS    0x0C
 #define MPU9150_RA_MAG_XOUT_L   0x03
