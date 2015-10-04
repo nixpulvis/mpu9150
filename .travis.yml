@@ -1,0 +1,14 @@
+---
+language: c
+sudo: true
+
+before_install:
+      - sudo apt-get update -qq
+install:
+      - sudo apt-get install -qq gcc-avr binutils-avr avr-libc
+      - git clone https://github.com/nixpulvis/avrm.git ~/avrm
+      - cd ~/avrm
+      - sudo make install
+
+script: sudo make test
+
