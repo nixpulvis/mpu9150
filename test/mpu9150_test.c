@@ -11,42 +11,9 @@ int main(int argc, char const *argv[]) {
   // Setup the I2C bus for talking to the MPU9150.
   i2c_init(I2C_SCL_400KHZ);
 
-  byte data;
-
-  // Write
-  i2c_start(0x68, I2C_WRITE);
-  i2c_write(FIFO_EN);
-  i2c_write(0xFF);
-  i2c_stop();
-
-  printf("Write\n");
-
-  // Read
-  i2c_start(0x68, I2C_WRITE);
-  i2c_write(FIFO_EN);
-  i2c_start(0x68, I2C_READ);
-  data = i2c_read_ack();
-  i2c_stop();
-
-  printf("Read\n");
-  printf("%x\n", data);
-
-  // for (;;)
-  // {
-  //   i2c_start(0x68, I2C_WRITE);
-  //   a = i2c_read_ack();
-  //   i2c_write(ACCEL_XOUT_H);
-  //   b = i2c_read_ack();
-  //   i2c_start(0x68, I2C_READ);
-  //   c = i2c_read_ack();
-  //   i2c_stop();
-  //
-  //   printf("%x\n", a);
-  //   printf("%x\n", b);
-  //   printf("%x\n", c);
-  //
-  //   delay_ms(500);
-  // }
+  // Print the device ID.
+  byte id = mpu9150_get_device_id();
+  printf("ID: %x\n", id);
 
   return 0;
 }

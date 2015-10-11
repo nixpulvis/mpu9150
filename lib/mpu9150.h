@@ -99,4 +99,6 @@
 
 // i2c 400kHz
 
+byte mpu9150_get_device_id();
+
 #endif
