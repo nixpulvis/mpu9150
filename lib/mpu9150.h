@@ -99,6 +99,19 @@
 
 // i2c 400kHz
 
+uint16_t mpu9150_get_accel_x();
+
+bool mpu9150_get_sleep();
+void mpu9150_set_sleep(bool enabled);
+
+bool mpu9150_get_cycle();
+void mpu9150_set_cycle(bool enabled);
+byte mpu9150_get_cycle_rate();
+void mpu9150_set_cycle_rate(byte rate);
+
 byte mpu9150_get_device_id();
+byte mpu9150_get_magnetometer_id();
+
+void mpu9150_reset();
 
 #endif

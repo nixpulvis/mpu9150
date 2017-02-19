@@ -13,7 +13,18 @@ int main(int argc, char const *argv[]) {
 
   // Print the device ID.
   byte id = mpu9150_get_device_id();
-  printf("ID: %x\n", id);
+  printf("dID: %x\n", id);
+
+  // byte id = mpu9150_get_magnetometer_id();
+  // printf("mID: %x\n", id);
+
+  mpu9150_set_sleep(0);
+
+  for (;;)
+  {
+    uint16_t x = mpu9150_get_accel_x();
+    printf("x: %d\n", x);
+  }
 
   return 0;
 }
